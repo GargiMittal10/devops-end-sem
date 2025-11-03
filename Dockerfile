@@ -1,11 +1,8 @@
-# Use a lightweight web server image
-FROM nginx:alpine
+# Use Nginx as base image
+FROM nginx:latest
 
-# Copy your HTML file into the Nginx HTML folder
-COPY index.html /usr/share/nginx/html/index.html
+# Copy your static site to the default Nginx directory
+COPY index.html /usr/share/nginx/html/
 
-# Expose port 80
+# Expose port 80 for web access
 EXPOSE 80
-
-# Run Nginx
-CMD ["nginx", "-g", "daemon off;"]
